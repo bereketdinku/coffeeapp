@@ -18,6 +18,7 @@ import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from "../../theme
 import HeaderBar from "../../components/Headerbar";
 import CustomIcon from "../../components/CustomIcon";
 import CoffeeCard from "../../components/CoffeeCard";
+import { AntDesign, EvilIcons } from "@expo/vector-icons";
 const getCategoriesFromData=(data:any)=>{
     let temp:any={}
     for(let i=0;i<data.length;i++){
@@ -125,7 +126,7 @@ const HomePage=()=>{
  <TouchableOpacity onPress={()=>{
     searchCoffee(searchText)
  }}>
-    <CustomIcon style={styles.InputIcon} name="search" size={FONTSIZE.size_20} color={
+    <EvilIcons style={styles.InputIcon} name="search" size={FONTSIZE.size_20} color={
         searchText.length>0?COLORS.primaryOrangeHex:COLORS.primaryLightGreyHex
     }/>   
 
@@ -142,12 +143,13 @@ style={styles.TextInputContainer}
     <TouchableOpacity onPress={()=>{
         resetSearchCoffee()
     }}>
-                      <CustomIcon
+                      {/* <CustomIcon
                 style={styles.InputIcon}
                 name="close"
                 size={FONTSIZE.size_16}
                 color={COLORS.primaryLightGreyHex}
-              />
+              /> */}
+              <AntDesign style={styles.InputIcon} name="close" size={FONTSIZE.size_16} color={COLORS.primaryLightGreyHex}/>
     </TouchableOpacity>
 ):(<></>)}
 </View>

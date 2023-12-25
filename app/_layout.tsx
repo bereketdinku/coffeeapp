@@ -11,6 +11,10 @@ return(
     <Stack.Screen name="detail"options={{
         headerShown:false
     }}/>
+    <Stack.Screen name="payment"options={{
+        headerShown:false
+    }}/>
+    
    </Stack>
 )
 }

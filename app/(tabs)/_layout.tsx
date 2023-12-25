@@ -4,28 +4,53 @@ import React from "react"
 import { StyleSheet } from "react-native"
 import CustomIcon from "../../components/CustomIcon"
 import { COLORS } from "../../theme/theme"
-import { Ionicons } from "@expo/vector-icons"
+import { Entypo, Ionicons, MaterialIcons } from "@expo/vector-icons"
 const TabLayout = () => {
     return (
         <Tabs screenOptions={{
             tabBarHideOnKeyboard: true,
             headerShown: false,
+            tabBarShowLabel: false,
             tabBarStyle:styles.tabBarStyle,
         }}>
             <Tabs.Screen name="index" options={{
                 headerTitle: 'Home',
                 tabBarLabel: 'Home',
                 tabBarIcon:({focused,color,size})=>(
-                    <Ionicons name="home" size={25} color='white'/>
+                    <Ionicons name="home" size={25} color={
+                        focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
+                      }/>
                                   )
             }} />
-            <Tabs.Screen name="users/[id]" options={{
-                headerTitle: 'User',
-                tabBarLabel: 'User',
+           
+             <Tabs.Screen name="cart/index" options={{
+                headerTitle: 'Cart',
+                tabBarLabel: 'Cart',
                 tabBarIcon:({focused,color,size})=>(
-  <CustomIcon name="home" size={25} color={focused? COLORS.primaryOrangeHex:COLORS.primaryLightGreyHex}/>
-                )
+                    <Ionicons name="cart" size={25} color={
+                        focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
+                      }/>
+                                  )
             }} />
+             <Tabs.Screen name="favorites/favorite" options={{
+                headerTitle: 'Favorite',
+                tabBarLabel: 'Favorite',
+                tabBarIcon:({focused,color,size})=>(
+         <MaterialIcons name="favorite" size={25} color={
+            focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
+          }/>
+                    )
+            }} />
+             <Tabs.Screen name="orders/history" options={{
+                headerTitle: 'Orders',
+                tabBarLabel: 'Orders',
+                tabBarIcon:({focused,color,size})=>(
+            <Entypo name="bell" size={25} color={
+                focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
+              }/>
+                    )
+            }} />
+
         </Tabs>
     )
 }

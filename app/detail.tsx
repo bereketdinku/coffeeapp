@@ -17,6 +17,7 @@ const Detail=()=>{
    const ToggleFavourite=(favourite:boolean,type:string,id:string)=>{
     favourite?deleteFromFavoriteList(type,id):addToFavoriteList(type,id)
    }
+   console.log(price)
    const BackHandler=()=>{
 
    }

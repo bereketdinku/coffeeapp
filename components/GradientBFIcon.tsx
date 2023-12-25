@@ -3,7 +3,7 @@ import { View,StyleSheet } from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
 import { COLORS, SPACING } from "../theme/theme";
 import CustomIcon from "./CustomIcon";
-import { Ionicons } from "@expo/vector-icons";
+import { Entypo, Ionicons } from "@expo/vector-icons";
 
 interface GradientBGIconProps{
     name:string;
@@ -14,7 +14,8 @@ const GradientBGIcon:React.FC<GradientBGIconProps>=({name,color,size})=>{
     return (
 <View>
     <LinearGradient start={{x:0,y:0}}end={{x:1,y:1}} colors={[COLORS.primaryGreyHex,COLORS.primaryBlackHex]} style={styles.LinearGradientBG}>
-        <CustomIcon name={name}color={color} size={size}/>
+        {/* <CustomIcon name={name}color={color} size={size}/> */}
+       <Entypo name="menu" color={color} size={size} />
         {/* <Ionicons  color={color} size={size} /> */}
     </LinearGradient>
 </View>

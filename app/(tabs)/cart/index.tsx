@@ -18,13 +18,17 @@ import PaymentFooter from '../../../components/PaymentFooter';
 
 const CartScreen=()=>{
     const CartList=useStore((state:any)=>state.CartList);
-    const CartPrice=useStore((state:any)=>state.CardPrice)
+    const CartPrice=useStore((state:any)=>state.CartPrice)
     const incrementCartItemQuantity=useStore((state:any)=>state.incrementCartItemQuantity);
     const decrementCartItemQuantity=useStore((state:any)=>state.decrementCartItemQuantity);
     const calculateCartPrice=useStore((state:any)=>state.calculateCartPrice);
     const tabBarHeight = useBottomTabBarHeight();
     const buttonPressHandler = () => {
         // navigation.push('Payment', {amount: CartPrice});
+        router.push({
+          params:{amount:CartPrice},
+          pathname:'payment'
+        })
       };
       const incrementCartItemQuantityHandler = (id: string, size: string) => {
         incrementCartItemQuantity(id, size);
