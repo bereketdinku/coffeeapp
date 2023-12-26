@@ -4,7 +4,6 @@ import {persist, createJSONStorage} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CoffeeData from '../data/coffeeList';
 import BeansData from '../data/BeanList';
-
 export const useStore = create(
   persist(
     (set, get) => ({
@@ -203,6 +202,11 @@ export const useStore = create(
                 CartList: state.CartList,
                 CartListPrice: temp.toFixed(2).toString(),
               });
+              // axios.post('http://localhost:8000/api/order/store',{
+              //   CartList:state.CartList,
+              //   CartListPrice:temp.toFixed(2).toString(),
+              //   userEmail:'beki'
+              // })
             }
             state.CartList = [];
           }),
