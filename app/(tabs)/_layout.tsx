@@ -5,6 +5,7 @@ import { StyleSheet } from "react-native"
 import CustomIcon from "../../components/CustomIcon"
 import { COLORS } from "../../theme/theme"
 import { Entypo, Ionicons, MaterialIcons } from "@expo/vector-icons"
+import { BlurView } from "expo-blur"
 const TabLayout = () => {
     return (
         <Tabs screenOptions={{
@@ -12,6 +13,13 @@ const TabLayout = () => {
             headerShown: false,
             tabBarShowLabel: false,
             tabBarStyle:styles.tabBarStyle,
+            tabBarBackground:() => (
+                <BlurView
+                //   blurAmount={15}
+                intensity={15}
+                  style={styles.BlurViewStyles}
+                />
+              ),
         }}>
             <Tabs.Screen name="index" options={{
                 headerTitle: 'Home',
@@ -32,7 +40,7 @@ const TabLayout = () => {
                       }/>
                                   )
             }} />
-             <Tabs.Screen name="favorites/favorite" options={{
+             <Tabs.Screen name="favorites/index" options={{
                 headerTitle: 'Favorite',
                 tabBarLabel: 'Favorite',
                 tabBarIcon:({focused,color,size})=>(

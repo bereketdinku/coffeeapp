@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
+import { Entypo, Ionicons } from '@expo/vector-icons';
 interface CartItemProps {
     id: string;
     name: string;
@@ -71,7 +72,8 @@ const CartItem: React.FC<CartItemProps> = ({
 <TouchableOpacity style={styles.CartItemIcon} onPress={()=>{
     decrementCartItemQuantityHandler(id,data.size)
 }}>
-<CustomIcon name="minus" color={COLORS.primaryWhiteHex} size={FONTSIZE.size_10} />
+{/* <CustomIcon name="minus" color={COLORS.primaryWhiteHex} size={FONTSIZE.size_10} /> */}
+<Entypo name='minus' color={COLORS.primaryWhiteHex} size={FONTSIZE.size_10}/>
 </TouchableOpacity>
 <View style={styles.CartItemQuantityContainer}>
 <Text style={styles.CartItemQuantityText}>{data.quantity}</Text>

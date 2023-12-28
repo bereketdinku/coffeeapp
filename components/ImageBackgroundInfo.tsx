@@ -15,6 +15,8 @@ import {
   } from '../theme/theme';
 import GradientBGIcon from './GradientBFIcon';
 import CustomIcon from './CustomIcon';
+import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
   
 interface ImageBackgroundInfoProps {
     EnableBackHandler: boolean;
@@ -48,16 +50,34 @@ const ImageBackgroundInfo:React.FC<ImageBackgroundInfoProps>=({EnableBackHandler
             <View>
                 <ImageBackground source={imagelink_portrait}style={styles.ItemBackgroundImage} >
                     {EnableBackHandler?(
-                        <View style={styles.ImageHeaderBarContainerWithoutBack}>
-<TouchableOpacity onPress={()=>{}}>
-<GradientBGIcon name='left' color={COLORS.primaryLightGreyHex} size={FONTSIZE.size_16}/>
+                        <View style={styles.ImageHeaderBarContainerWithBack}>
+<TouchableOpacity onPress={()=>{
+  router.back()
+}}>
+<View style={{ borderWidth:2,
+        borderColor:COLORS.secondaryDarkGreyHex,
+        borderRadius:SPACING.space_12,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:COLORS.secondaryDarkGreyHex,
+        overflow:'hidden'}}>
+          <Ionicons name='arrow-back' size={25} color={COLORS.primaryLightGreyHex}/>
+        </View>
 </TouchableOpacity>
 <TouchableOpacity onPress={()=>{
     ToggleFavourite(favourite,type,id)
 }}>
-<GradientBGIcon name='like' color={favourite?COLORS.primaryRedHex:COLORS.primaryLightGreyHex} size={FONTSIZE.size_16}>
-
-</GradientBGIcon>
+<View style={{ borderWidth:2,
+        borderColor:COLORS.secondaryDarkGreyHex,
+        borderRadius:SPACING.space_12,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:COLORS.secondaryDarkGreyHex,
+        overflow:'hidden'}}>
+          <Ionicons name='heart' size={25} color={
+                  favourite ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex
+                }/>
+        </View>
 </TouchableOpacity>
                         </View>
                     ):(

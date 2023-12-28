@@ -61,7 +61,7 @@ const PaymentList = [
     //     // navigation.navigate('History');
     //   }, 2000);
     router.push({
-                // pathname:'(tabs)/orders/history'
+                pathname:'(tabs)'
             })
     };
   

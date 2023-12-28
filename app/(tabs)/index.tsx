@@ -18,7 +18,9 @@ import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from "../../theme
 import HeaderBar from "../../components/Headerbar";
 import CustomIcon from "../../components/CustomIcon";
 import CoffeeCard from "../../components/CoffeeCard";
-import { AntDesign, EvilIcons } from "@expo/vector-icons";
+import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
+import Profile from "../../components/Profile";
 const getCategoriesFromData=(data:any)=>{
     let temp:any={}
     for(let i=0;i<data.length;i++){
@@ -117,9 +119,21 @@ const HomePage=()=>{
         <View style={styles.ScreenContainer}>
             <StatusBar backgroundColor={COLORS.primaryBlackHex}/>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.ScrollViewFlex}>
-<HeaderBar/>
+<View style={{flexDirection:'row',justifyContent:'space-between',margin:SPACING.space_30}}>
+<TouchableOpacity onPress={()=>router.push('login')} style={{borderRadius:SPACING.space_10,overflow:'hidden',height: SPACING.space_36,
+      width: SPACING.space_36}}>
+<BlurView style={{
+  height:'100%',
+  justifyContent:'center',
+  alignItems:'center'
+}}>
+<Ionicons name="menu" size={25} />
+</BlurView>
+</TouchableOpacity>
+<Profile/>
+</View>
 <Text style={styles.ScreenTitle}>
-    Find The Best{'\n'} coffee for 
+    Order The Best{'\n'} coffee for 
 </Text>
 
 <View style={styles.InputContainer}>

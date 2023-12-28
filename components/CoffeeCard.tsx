@@ -11,6 +11,7 @@ import {
 import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 import BGIcon from './BGIcon';
+import { AntDesign, Entypo } from '@expo/vector-icons';
 const CARD_WIDTH = Dimensions.get('window').width * 0.32;
 interface CoffeeCardProps{
     id:string;
@@ -31,7 +32,7 @@ const CoffeeCard:React.FC<CoffeeCardProps>=({id,index,type,roasted,imagelink_squ
  >
 <ImageBackground source={imagelink_square} style={styles.CardImageBG} resizeMode='cover'>
   <View style={styles.CardRatingContainer}></View>
-<CustomIcon  name={'star'} color={COLORS.primaryOrangeHex} size={FONTSIZE.size_16} />
+<AntDesign name='star' color={COLORS.primaryOrangeHex} size={FONTSIZE.size_16}/>
 <Text style={styles.CardRatingText}>{average_rating}</Text>
 </ImageBackground>
 <Text style={styles.CardTitle}>{name}</Text>
@@ -43,8 +44,11 @@ const CoffeeCard:React.FC<CoffeeCardProps>=({id,index,type,roasted,imagelink_squ
       id,index,type,roasted,imagelink_square,name,special_ingredient,prices:[{...price,quantity:1}]
     })
   }}>
-    <BGIcon color={COLORS.primaryWhiteHex} name={'add'} BGColor={COLORS.primaryOrangeHex} size={FONTSIZE.size_10}/>
-
+    {/* <BGIcon color={COLORS.primaryWhiteHex} name={'add'} BGColor={COLORS.primaryOrangeHex} size={FONTSIZE.size_10}/> */}
+    <View style={[styles.IconBG, {backgroundColor: COLORS.primaryOrangeHex}]}>
+      {/* <CustomIcon name={name} color={COLORS.primaryWhiteHex} size={FONTSIZE.size_10} /> */}
+      <Entypo name='plus' color={COLORS.primaryWhiteHex} size={FONTSIZE.size_10}/>
+    </View>
   </TouchableOpacity>
 </View>
  </LinearGradient>
@@ -104,7 +108,13 @@ CardPriceCurrency:{
 },
 CardPrice:{
   color:COLORS.primaryWhiteHex
-}
-
+},
+IconBG: {
+  height: SPACING.space_30,
+  width: SPACING.space_30,
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: BORDERRADIUS.radius_8,
+},
 })
 export default CoffeeCard
